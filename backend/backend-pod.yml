@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend-pod
+  labels:
+    app: backend
+spec:
+  containers:
+    - name: student-app-backend
+      image: r25gajengi/student-app-backend:v2
+      ports:
+        - containerPort: 80
