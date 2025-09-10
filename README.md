@@ -74,14 +74,39 @@ devops-3tier-app/
 
 ## 🛠️ Steps
 ### 1️⃣ Clone Application
+```bash
+git clone https://github.com/RajeshGajengi/students-database-app.git
+```
 
 ### 2️⃣ Dockerize Each Tier
+```bash
+# Frontend
+docker build -t <dockerhub-username>/frontend:latest -f docker/frontend.Dockerfile ./app/frontend
+
+# Backend
+docker build -t <dockerhub-username>/backend:latest -f docker/backend.Dockerfile ./app/backend
+
+# Database (if using custom DB image)
+docker build -t <dockerhub-username>/db:latest -f docker/db.Dockerfile ./app/database
+```
 
 ### 3️⃣ Push Images
+```
+docker push <dockerhub-username>/frontend:latest
+docker push <dockerhub-username>/backend:latest
+docker push <dockerhub-username>/db:latest
+```
 
 ### 4️⃣ Deploy on Kubernetes
+kubectl apply -f k8s/db-deployment.yaml
+kubectl apply -f k8s/backend-deployment.yaml
+kubectl apply -f k8s/frontend-deployment.yaml
+kubectl apply -f k8s/ingress.yaml
 
 ### 5️⃣ Verify
+kubectl get pods
+kubectl get svc
+kubectl get ingress
 
 
 ## 📊 Workflow Diagram
@@ -95,4 +120,4 @@ devops-3tier-app/
 - Deploy on AWS EKS with RDS (Managed DB)
 
 👨‍💻 Author
-Developed by [Your Name]
+Developed by Rajesh
