@@ -1,58 +1,126 @@
-# MariaDB Setup and Configuration Guide for Windows
+# Cloud-Native DevOps Pipeline: 3-Tier Application Deployment on Kubernetes with Ingress
 
-This guide explains how to set up MariaDB, create a database, and Create Database User
+## 📌 About the Project
+This project demonstrates a complete DevOps workflow for a 3-tier web application. The application consists of:
+- Frontend (UI Layer) → Node.js with npm
+- Backend (API Layer) → Java with Spring Boot ( managed by Maven ) 
+- Database (Data Layer) → MySQL
 
-## 1. Installing MariaDB
+The project showcases containerization, Kubernetes deployment, and Ingress-based service exposure.
 
-Installing MariaDB on Ubntu
+## ✨ Features
 
-```shell
-apt update && apt install mariadb-server -y
+- ✅ Multi-tier architecture (Frontend, Backend, Database)
+- ✅ Separate Dockerfiles for each tier
+- ✅ Push Docker images to Docker Hub
+- ✅ Kubernetes manifests for each tier
+- ✅ Services for internal/external communication
+- ✅ Ingress to expose frontend to users
+- ✅ Modular and scalable design
+
+## 📂 Project Structure
 ```
+devops-3tier-app/
+│── app/
+│   ├── frontend/                 # Frontend code (React/Angular/HTML)
+│   │   └── Dockerfile
+│   ├── backend/                  # Backend API code
+│   │   └── Dockerfile
+│   └── database/                 # DB init scripts
+│       └── init.sql
+│
+│── docker/
+│   ├── frontend.Dockerfile
+│   ├── backend.Dockerfile
+│   └── db.Dockerfile (optional if DB containerized)
+│
+│── k8s/
+│   ├── frontend-deployment.yaml
+│   ├── frontend-service.yaml
+│   ├── backend-deployment.yaml
+│   ├── backend-service.yaml
+│   ├── db-deployment.yaml
+│   ├── db-service.yaml
+│   └── ingress.yaml
+│
+│── scripts/
+│   ├── build.sh
+│   ├── push.sh
+│   └── deploy.sh
+│
+│── docs/
+│   ├── architecture.png
+│   └── flow.png
+│
+│── README.md
 
-## 2. Securing MariaDB
-
-Open the Command Prompt as Administrator and run the following command to secure your installation:
-
-```shell
-
-mysql_secure_installation
 ```
+## 🏗️ Architecture
 
-Follow the prompts to:
-Set a root password.
-Remove insecure default users and test databases.
-Disable remote root login.
+## 🔑 Prerequisites
+- Git → clone repo
+- Docker & Docker Hub account → build & push images
+- Kubernetes cluster (Minikube/EKS/GKE/AKS)
+- kubectl CLI
+- Ingress Controller
 
-## 3. Setting Up the Database
+## 🔄 Flow of Project
+1. Clone application repositories (Frontend, Backend, DB scripts)
+2. Dockerize each component
+3. Push images to Docker Hub
+4. Deploy each component in Kubernetes (Deployments + Services)
+5. Configure Ingress for frontend access
+6. Test full-stack flow (Frontend → Backend → DB)
 
-Open terminal and login to MariaDB:
-
+## 🛠️ Steps
+### 1️⃣ Clone Application
 ```bash
-
-mysql -u root -p
+git clone https://github.com/RajeshGajengi/students-database-app.git
 ```
 
-Enter the root password when prompted.
+### 2️⃣ Dockerize Each Tier
+```bash
+# Frontend
+docker build -t <dockerhub-username>/frontend:latest -f docker/frontend.Dockerfile ./app/frontend
 
-Create a new database and user:
+# Backend
+docker build -t <dockerhub-username>/backend:latest -f docker/backend.Dockerfile ./app/backend
 
-```sql
-CREATE DATABASE student_db;
-GRANT ALL PRIVILEGES ON springbackend.* TO 'username'@'localhost' IDENTIFIED BY 'your_password';
-```
-Replace username and your_password with your desired username and password.
-
-Exit MariaDB:
-
-```sql
-
-EXIT;
+# Database (if using custom DB image)
+docker build -t <dockerhub-username>/db:latest -f docker/db.Dockerfile ./app/database
 ```
 
-## 4. You will need Database Credentials to Connect Backend with Database
-1. DB_HOST
-2. DB_USER
-3. DB_PASS
-4. DB_PORT
-5. DB_NAME
+### 3️⃣ Push Images
+```bash
+docker push <dockerhub-username>/frontend:latest
+docker push <dockerhub-username>/backend:latest
+docker push <dockerhub-username>/db:latest
+```
+
+### 4️⃣ Deploy on Kubernetes
+```bash
+kubectl apply -f k8s/db-deployment.yaml
+kubectl apply -f k8s/backend-deployment.yaml
+kubectl apply -f k8s/frontend-deployment.yaml
+kubectl apply -f k8s/ingress.yaml
+```
+
+### 5️⃣ Verify
+```bash
+kubectl get pods
+kubectl get svc
+kubectl get ingress
+```
+
+## 📊 Workflow Diagram
+
+## 🔮 Future Enhancements
+
+- Add Jenkins pipeline for CI/CD automation
+- Replace YAML with Helm charts
+- Integrate Monitoring (Prometheus + Grafana)
+- Use Secrets & ConfigMaps for DB credentials
+- Deploy on AWS EKS with RDS (Managed DB)
+
+👨‍💻 Author
+Developed by Rajesh
