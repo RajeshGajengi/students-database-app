@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: frontend-config
-data:
-  backend_ip: "af5a5e1f307b54cbab40c9e2e524b26c-129935404.us-east-1.elb.amazonaws.com:8080/api"

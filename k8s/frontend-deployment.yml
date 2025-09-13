@@ -16,12 +16,7 @@ spec:
     spec:
       containers:
         - name: student-app-frontend
-          image: r25gajengi/student-app-frontend:v5
+          image: r25gajengi/student-app-frontend:v6
           ports:
             - containerPort: 80
-          env:
-            - name: BACKEND_IP
-              valueFrom:
-                configMapKeyRef:
-                  name: frontend-config
-                  key: backend_ip
+    
