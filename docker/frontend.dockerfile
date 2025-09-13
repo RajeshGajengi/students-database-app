@@ -7,3 +7,6 @@ RUN rm -rf /var/www/localhost/htdocs/*
 RUN cp -rf dist/* /var/www/localhost/htdocs
 EXPOSE 80
 CMD ["httpd","-D","FOREGROUND"]
+
+
+# Docker run -e BACKEND=<ip> image
