@@ -3,7 +3,7 @@ COPY . /opt/
 WORKDIR /opt/
 RUN rm -f src/main/resources/application.properties && \
     cp -f application.properties src/main/resources/application.properties && \
-    mvn clean package -DskipTest
+    mvn clean package -DskipTests
 WORKDIR /opt/target
 EXPOSE 8080
 ENTRYPOINT ["java","-jar"]
