@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: student-app-frontend
-          image: r25gajengi/student-app-frontend:v6
+          image: r25gajengi/student-frontend:v2
           ports:
             - containerPort: 80
     
