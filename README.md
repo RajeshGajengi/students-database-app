@@ -80,6 +80,9 @@ devops-3tier-app/
 │ -->
 
 ## 🏗️ Architecture
+```
+
+```
 
 ## 🔑 Prerequisites
 - Git → to clone the repository
@@ -93,10 +96,9 @@ devops-3tier-app/
 2. Dockerize each component
 3. Push images to Docker Hub
 4. Deploy each component in Kubernetes (Deployments + Services)
-<!-- 5. Configure Ingress for frontend access (maps external traffic to services) -->
 5. Configure Ingress to route traffic: / → frontend, /api → backend
 6. Test full-stack flow (Frontend → Backend → Database)
-
+<!-- 5. Configure Ingress for frontend access (maps external traffic to services) -->
 ## 🛠️ Steps
 ### 1️⃣ Clone Application
 ```bash
@@ -157,16 +159,19 @@ kubectl get ingress
 ```
 
 ## 📊 Workflow Diagram
+```
 
+```
 
 ## Results
 
+**Frontend Result**
 ![Frontend](docs/frontend-a.png)
-
+**Backend API**
 ![Backend API](docs/backend.png)
-
+**Database Result**
 ![Database Result](docs/database-result.png)
-
+**Kubernetes Results: Pods, Services, Ingress**
 ![K8s Pods,Service and Ingress](docs/k8s-results.png)
 
 
@@ -198,5 +203,5 @@ Alertmanager → Alerting on failures -->
 - Extend monitoring and logging with full observability stack
 - Implement Horizontal Pod Autoscaler (HPA) for auto-scaling
 
-👨‍💻 Author
+## 👨‍💻 Author
 Developed by Rajesh
