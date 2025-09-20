@@ -157,10 +157,10 @@ kubectl get svc
 kubectl get ingress
 ```
 
-## 📊 Workflow Diagram
+<!-- ## 📊 Workflow Diagram
 ```
 
-```
+``` -->
 
 ## Results
 
