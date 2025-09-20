@@ -80,9 +80,8 @@ devops-3tier-app/
 │ -->
 
 ## 🏗️ Architecture
-```
 
-```
+![Architecture](docs/Architecture.png)
 
 ## 🔑 Prerequisites
 - Git → to clone the repository
