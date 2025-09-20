@@ -206,5 +206,6 @@ Alertmanager → Alerting on failures -->
 - Extend monitoring and logging with full observability stack
 - Implement Horizontal Pod Autoscaler (HPA) for auto-scaling
 
+
 ## 👨‍💻 Author
 Developed by Rajesh
