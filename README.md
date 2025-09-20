@@ -84,6 +84,7 @@ devops-3tier-app/
 ![Architecture](docs/Architecture.png)
 
 ## 🔑 Prerequisites
+
 - Git → to clone the repository
 - Docker & Docker Hub account → build & push images
 - Kubernetes cluster (Minikube/EKS/GKE/AKS)
@@ -91,6 +92,7 @@ devops-3tier-app/
 - Ingress Controller (NGINX or any other --> required for external access, since services are ClusterIP)
 
 ## 🔄 Flow of Project
+
 1. Clone the repository containing the application code (Frontend, Backend, Database scripts)
 2. Dockerize each component
 3. Push images to Docker Hub
@@ -98,7 +100,9 @@ devops-3tier-app/
 5. Configure Ingress to route traffic: / → frontend, /api → backend
 6. Test full-stack flow (Frontend → Backend → Database)
 <!-- 5. Configure Ingress for frontend access (maps external traffic to services) -->
+
 ## 🛠️ Steps
+
 ### 1️⃣ Clone Application
 ```bash
 git clone https://github.com/RajeshGajengi/students-database-app.git
