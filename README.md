@@ -37,7 +37,7 @@ The project showcases containerization, Kubernetes deployment on EKS, and servic
 
 ## 📂 Project Structure
 ```
-devops-3tier-app/
+students-database-app/
 │── app/
 │   ├── frontend/                 # Frontend code (Node.js with npm)
 │   │   └── Dockerfile
@@ -161,10 +161,10 @@ kubectl get svc
 kubectl get ingress
 ```
 
-<!-- ## 📊 Workflow Diagram
-```
+## 📊 Workflow Diagram
 
-``` -->
+![Workflow Diagram](docs/Workflow.png)
+
 
 ## Results
 
